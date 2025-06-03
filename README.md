@@ -10,8 +10,12 @@ The primary goal of these `.sfm` files is to provide pre-configured blueprints f
 
 To use these `.sfm` setups in your Minecraft Super Factory Manager:
 
-1.  **Open the `.sfm` file:** Open the desired `.sfm` file (e.g., `PowerSetUp.sfm`) with a text editor.
+1.  **Open the `.sfm` file:** Open the desired `.sfm` file (e.g., `MekanismGasBurningGenSetup.sfm`) with a text editor.
 2.  **Copy the code:** Select and copy all the content from the `.sfm` file.
 3.  **Paste in-game:** In Minecraft, open the Super Factory Manager interface and paste the copied code into the appropriate section to load the setup.
+
+## Contributions
+
+Contributions are welcome! If you have your own Super Factory Manager setups or improvements to existing ones, feel free to contribute to this repository.
 
 ---
