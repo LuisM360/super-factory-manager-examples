@@ -1,0 +1,20 @@
+ -- SFM setup for Mekanism Gas Burning Generator
+
+ -- Moves water from the sink to the separator and chamber
+ EVERY 20 TICKS DO
+     INPUT fluid::water from sink
+     OUTPUT fluid::water to separator bottom side
+     OUTPUT fluid::water to chamber bottom side
+END
+-- Moves Power from energy cube to machines
+EVERY 20 TICKS DO
+    INPUT fe:: FROM source bottom side
+    OUTPUT fe:: TO separator top side
+    output fe:: to chamber top side
+    output fe:: to crusher top side
+END
+-- Moves Hydrogen from the separator to the chamber
+EVERY 20 TICKS DO
+    INPUT gas::hydrogen from separator south side
+    OUTPUT gas::hydrogen to chamber bottom side
+END
