@@ -1,0 +1,41 @@
+-- SFM setup for Hostile Neural Networks
+
+-- Moves Predictions from the Interface to all Simulation Chambers
+EVERY 20 TICKS DO
+    INPUT FROM interface
+    OUTPUT TO EACH simulationchamber
+END
+-- Moves Generalized Predictions from all Simulation Chambers to the Interface
+EVERY 20 TICKS DO
+    INPUT *end* FROM EACH simulationchamber
+    OUTPUT *end* TO interface
+END
+-- Moves Power from the Interface to all Simulation Chambers and Loot Fabricators
+EVERY 20 TICKS DO
+    INPUT fe:: FROM interface
+    OUTPUT fe:: TO EACH simulationchamber
+    OUTPUT fe:: TO EACH lootfabricator
+END
+-- Moves Loot from the loot fabricators to the Interface
+EVERY 20 TICKS DO
+    INPUT FROM EACH lootfabricator
+    OUTPUT TO interface
+END
+
+-- Moves Predictions from simulation chambers to loot fabricators
+EVERY 20 TICKS DO
+    INPUT FROM simulationchamber1
+    OUTPUT TO lootfabricator1
+END
+EVERY 20 TICKS DO
+    INPUT FROM simulationchamber2
+    OUTPUT TO lootfabricator2
+END
+EVERY 20 TICKS DO
+    INPUT FROM simulationchamber3
+    OUTPUT TO lootfabricator3
+END
+EVERY 20 TICKS DO
+    INPUT FROM simulationchamber4
+    OUTPUT TO lootfabricator4
+END
