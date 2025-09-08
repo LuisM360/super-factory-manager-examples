@@ -1,0 +1,83 @@
+-- Credits: https://github.com/LuisM360/super-factory-manager-examples/blob/main/HostileNeuralNetworksSetup.sfm
+-- This setup is for 8 SImulation Chambers and 8 Loot Fabricators
+NAME "Hostile Neural Networks Factory Manager"
+
+-- labels:
+-- simulationchamber1 => Simulation Chamber 1
+-- simulationchamber2 => Simulation Chamber 2
+-- simulationchamber3 => Simulation Chamber 3
+-- simulationchamber4 => Simulation Chamber 4
+-- simulationchamber5 => Simulation Chamber 5
+-- simulationchamber6 => Simulation Chamber 6
+-- simulationchamber7 => Simulation Chamber 7
+-- simulationchamber8 => Simulation Chamber 8
+
+-- lootfabricator1 => Loot Fabricator 1
+-- lootfabricator2 => Loot Fabricator 2
+-- lootfabricator3 => Loot Fabricator 3
+-- lootfabricator4 => Loot Fabricator 4
+-- lootfabricator5 => Loot Fabricator 5
+-- lootfabricator6 => Loot Fabricator 6
+-- lootfabricator7 => Loot Fabricator 7
+-- lootfabricator8 => Loot Fabricator 8
+
+-- interface => ME Interface
+
+-- Feed all Simulation Chambers with Predictions
+EVERY 20 TICKS DO
+    INPUT FROM interface
+    OUTPUT TO EACH simulationchamber
+END
+
+-- Moves Generalized Predictions from all Simulation Chambers to the Interface
+EVERY 20 TICKS DO
+    INPUT *_prediction FROM EACH simulationchamber
+    OUTPUT *_prediction TO interface
+END
+
+-- Collect Loot from Fabricators to Interface
+EVERY 20 TICKS DO
+    INPUT FROM EACH lootfabricator
+    OUTPUT TO interface
+END
+
+-- Supply FE to Sims and Fabricators
+EVERY TICK DO
+    INPUT fe:: FROM interface
+    OUTPUT fe:: TO EACH simulationchamber
+    OUTPUT fe:: TO EACH lootfabricator
+END
+
+-- Transfer Predictions 1-to-1 from Simulation Chambers to Loot Fabricators
+EVERY 20 TICKS DO
+    INPUT FROM simulationchamber1
+    OUTPUT TO lootfabricator1
+END
+EVERY 20 TICKS DO
+    INPUT FROM simulationchamber2
+    OUTPUT TO lootfabricator2
+END
+EVERY 20 TICKS DO
+    INPUT FROM simulationchamber3
+    OUTPUT TO lootfabricator3
+END
+EVERY 20 TICKS DO
+    INPUT FROM simulationchamber4
+    OUTPUT TO lootfabricator4
+END
+EVERY 20 TICKS DO
+    INPUT FROM simulationchamber5
+    OUTPUT TO lootfabricator5
+END
+EVERY 20 TICKS DO
+    INPUT FROM simulationchamber6
+    OUTPUT TO lootfabricator6
+END
+EVERY 20 TICKS DO
+    INPUT FROM simulationchamber7
+    OUTPUT TO lootfabricator7
+END
+EVERY 20 TICKS DO
+    INPUT FROM simulationchamber8
+    OUTPUT TO lootfabricator8
+END
