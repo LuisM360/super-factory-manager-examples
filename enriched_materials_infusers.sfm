@@ -1,0 +1,17 @@
+-- Moves Enriched Carbon from the Interface to the 2 Carbon Infusers
+EVERY 20 TICKS DO
+    INPUT mekanism:enriched_carbon FROM interface
+    OUTPUT mekanism:enriched_carbon TO EACH carboninfuser bottom side
+END
+
+-- Moves Enriched Redstone from the Interface to the 2 Redstone Infusers
+EVERY 20 TICKS DO
+    INPUT mekanism:enriched_redstone FROM interface
+    OUTPUT mekanism:enriched_redstone TO EACH redstoneinfuser bottom side
+END
+
+-- Moves Enriched Diamond from the Interface to the 2 Diamond Infusers
+EVERY 20 TICKS DO
+    INPUT mekanism:enriched_diamond FROM interface
+    OUTPUT mekanism:enriched_diamond TO EACH diamondinfuser bottom side
+END
